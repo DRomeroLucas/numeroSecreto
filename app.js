@@ -4,7 +4,6 @@ let numerosSorteados = [];
 console.log(numeroSecreto);
 let numeroMaximo = 10;
 
-
 // Código agrega texto según etiqueta
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
@@ -69,5 +68,17 @@ function reiniciarJuego() {
     document.querySelector('#reiniciar').setAttribute('disabled', 'true');
     // Inicializar el número de intentos
 };
+
+// Esperar por el enter para no usar el botón
+document.addEventListener('DOMContentLoaded', function() {
+    // Agregar el evento de keydown
+    document.getElementById('valorUsuario').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            verificarIntento();
+        }
+    });
+    condicionesIniciales();
+});
 
 condicionesIniciales();
